@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://fonts/ultra_large_text.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scenes/common.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/game1.gd" type="Script" id=3]
+
+[node name="Game1" type="Node"]
+script = ExtResource( 3 )
+
+[node name="Common" parent="." instance=ExtResource( 2 )]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 8.0
+margin_top = 50.0
+margin_right = 172.0
+margin_bottom = 108.0
+custom_fonts/font = ExtResource( 1 )
+text = "Game 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
