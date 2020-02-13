@@ -1,3 +1,6 @@
+##############################################
+#                 Godot Engine               #
+##############################################
 
 # Godot-specific ignores
 game/.import/
@@ -6,3 +9,54 @@ game/export_presets.cfg
 
 # Mono-specific ignores
 game/.mono/
+game/data_*/
+
+
+# Created by https://www.gitignore.io/api/linux,windows,macos
+
+##############################################
+#               OS related files             #
+##############################################
+
+### Linux ###
+
+*~
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
+
+
+### Windows ###
+
+# Windows thumbnail cache files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows shortcuts
+*.lnk
+
+### macOS ###
+
+# General
+.DS_Store
+
+# Thumbnails
+._*
+
+# End of https://www.gitignore.io/api/linux,windows,macos
