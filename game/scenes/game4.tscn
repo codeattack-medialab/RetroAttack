@@ -1,3 +1,21 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource path="res://textures/game4/fondo.png" type="Texture" id=1]
+[ext_resource path="res://fonts/ultra_large_text.tres" type="DynamicFont" id=2]
+
+[node name="Game4" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Label" type="Label" parent="."]
+margin_left = 8.0
+margin_top = 50.0
+margin_right = 211.0
+margin_bottom = 108.0
+custom_fonts/font = ExtResource( 2 )
+text = "Frogger"
+__meta__ = {
+"_edit_use_anchors_": false
+}

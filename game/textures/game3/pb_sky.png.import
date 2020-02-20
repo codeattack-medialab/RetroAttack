@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pb_sky.png-798edbb123f7312b2f50f8080c09b3a7.stex"
+path="res://.import/pb_sky.png-164fb3ecd084138f7237b24a8ba582f7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/pb_sky.png"
-dest_files=[ "res://.import/pb_sky.png-798edbb123f7312b2f50f8080c09b3a7.stex" ]
+source_file="res://textures/game3/pb_sky.png"
+dest_files=[ "res://.import/pb_sky.png-164fb3ecd084138f7237b24a8ba582f7.stex" ]
 
 [params]
 

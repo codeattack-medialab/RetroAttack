@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pb_werewolf.png-bbab1a2e3f6babe2b70969ba8fd20ddd.stex"
+path="res://.import/160x160.png-7f7aaafb72683d5d94187f0ec8b85c64.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/game3/pb_werewolf.png"
-dest_files=[ "res://.import/pb_werewolf.png-bbab1a2e3f6babe2b70969ba8fd20ddd.stex" ]
+source_file="res://textures/game4/160x160.png"
+dest_files=[ "res://.import/160x160.png-7f7aaafb72683d5d94187f0ec8b85c64.stex" ]
 
 [params]
 
