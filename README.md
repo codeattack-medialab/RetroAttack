@@ -30,7 +30,7 @@ Nombre                                 | Contenido
 ---------------------------------------|---------
 src-assets/                            | Archivos que sirven para generar los _assets_ del juego<sup>[1]</sup>
 docs/                                  | Directorio que GitHub puede usar para hostear GitHub Pages<sup>[2]</sup>
-gamet/                                 | Directorio raiz del proyecto Godot (contiene el project.godot)
+game/                                  | Directorio raiz del proyecto Godot (contiene el project.godot)
 game/project.godot                     | Proyecto de Godot
 game/music/                            | 
 game/sounds/                           |
@@ -58,10 +58,21 @@ Utilizaremos como base las [normas de estilo](https://docs.godotengine.org/en/la
 
 * Indentación con un tabulador
 
-* Nombres de clases y nodos en CamelCase
+* **Nunca** utilizar espacios para crear **columnas**
+
+* Los scripts del juego en GDScript han de terminar con la extensión ".gd".Los scripts del juego en GDScript han de terminar con la extensión ".gd".
+
+* Nombres de ficheros y directorios se permite elegir entre _snake_case_ y _kebab-case_ a los creadores de cada minijuego. Se desaconseja encarecidamente mezclar diferentes estilos. **Extremo cuidado** con usar ficheros con un mismo nombre pero diferente capitalización, e.g:
+```
+PlayerSprite.png
+playersprite.png
+plAYErSPriE.png
+PLAYERSPRITE.png
+// En Windows todos los nombres de fichero anteriores son equivalentes. El control de versiones sobreescribirá los archivos ya que el sistema de ficheros sólo permitirá un fichero con el mismo nombre en un mismo directorio.
+```
+* Nombres de **escenas**, **clases** y **nodos** en _CamelCase_. Al realizar pre-cargas de una clase en una constante o una variable es deseable usar también CamelCase, i.e.:
+```gdscript
+const Player = preload("res://Player.gd")
+```
 
 * Nombres de funciones y variables en snake_case
-
-* Nunca utilizar espacios para crear columnas
-
-* Nombres de archivos GDScript en snake_case con la terminación ".gd"
