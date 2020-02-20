@@ -3,7 +3,7 @@ extends Area2D
 
 var display := Vector2()
 
-export var fire_speed = 1  # Maximum speed range.
+export var fire_speed = 50  # Maximum speed range.
 
 var velocity := Vector2()
 var ready = false
@@ -11,6 +11,8 @@ var ready = false
 
 func _ready():
 	hide()
+	if !$TimerDelay.autostart:
+		_on_TimerDelay_timeout()
 
 func _physics_process(delta):
 	if ready:
@@ -31,4 +33,8 @@ func _on_TimerDelay_timeout():
 	ready = true
 	$AnimatedSprite.play("fly")
 	show()
+
+func _on_Paper_area_entered(area):
+	if area.has_method("read_paper"):
+		area.read_paper()
 

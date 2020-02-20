@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://fonts/ultra_large_text.tres" type="DynamicFont" id=1]
 [ext_resource path="res://textures/pb_sky.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/common.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/game3/biker.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/game3.gd" type="Script" id=6]
+[ext_resource path="res://scenes/game3/passerby.tscn" type="PackedScene" id=7]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
@@ -25,6 +26,7 @@ animations = [ {
 
 [node name="Game3" type="Node"]
 script = ExtResource( 6 )
+passerby = ExtResource( 7 )
 
 [node name="Common" parent="." instance=ExtResource( 4 )]
 
@@ -47,17 +49,23 @@ __meta__ = {
 position = Vector2( 95.2979, 130.987 )
 frames = SubResource( 3 )
 animation = "road"
+frame = 1
 
 [node name="Biker" parent="." instance=ExtResource( 5 )]
-position = Vector2( 95.2979, 130.987 )
+position = Vector2( 127, 97 )
 
 [node name="Label" type="Label" parent="."]
+visible = false
 margin_left = 16.8328
-margin_top = -3.2678
+margin_top = -12.4885
 margin_right = 180.833
-margin_bottom = 54.7322
+margin_bottom = 45.5115
 custom_fonts/font = ExtResource( 1 )
 text = "Game 3"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TimerLaunchPasserby" type="Timer" parent="."]
+autostart = true
+[connection signal="timeout" from="TimerLaunchPasserby" to="." method="_on_TimerLaunchPasserby_timeout"]
