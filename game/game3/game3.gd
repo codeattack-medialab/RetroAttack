@@ -11,6 +11,7 @@ func _input(event):
 
 func _ready():
 	$Road.playing = true
+	
 
 
 func _on_TimerLaunchPasserby_timeout():
