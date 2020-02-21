@@ -9,7 +9,7 @@ Aún así, es necesario crear un marco global sobre el que añadir cada juego. S
 
 La documentación interna para el desarrollo<sup>[1]</sup> la escribiremos en el idioma preferido por los integrantes del equipo, que en codeAttack será generalmente en español.
 
-El código de programación estará en inglés (nombres de funciones, variables, nodos, clases...)<sup>[2]</sup>. La historia de cambios en el programa de control de versiones se escribirá en inglés.
+El código de programación estará en inglés (nombres de funciones, variables, nodos, clases...)<sup>[2]</sup>. La historia de cambios en el programa de control de versiones se escribirá en inglés<sup>*</sup>.
 
 Los comentarios dentro de los scripts son un caso particular, puesto que podrían considerarse documentación del proyecto. Para que sea homogéneo con el resto del script, utilizaremos inglés, pero recomendamos mantenerlos breves. Cuando sea necesario añadir comentarios extensos<sup>[3]</sup>, los escribiremos en archivos separados, como parte de la documentación del proyecto (y por tanto, pueden ser en español).
 
@@ -31,22 +31,22 @@ Nombre                                 | Contenido
 src-assets/                            | Archivos que sirven para generar los _assets_ del juego<sup>[1]</sup>
 docs/                                  | Directorio que GitHub puede usar para hostear GitHub Pages<sup>[2]</sup>
 game/                                  | Directorio raiz del proyecto Godot (contiene el project.godot)
-game/project.godot                     | Proyecto de Godot
-game/music/                            | 
-game/sounds/                           |
-game/fonts/                            |
-game/textures/                         |
-game/gameX/                            | Directorio del juego número 'X' (0, 1, 2, 3....7, etc)
+game/project.godot                     | Fichero que representa el proyecto de Godot
 game/global.gd                         | Script _singleton_ con el código de transición de escenas y datos globales<sup>[3]</sup>
-game/gameX/..../                       | El sub-arbol de cada minijuego lo gestiona cada desarrollador a su discrección
-readme.md                              | THIS file
+game/music/                            | Pistas de música que se quieran usar en más de un minijuego
+game/sounds/                           | Efectos de sonido que se quieran usar en más de un minijuego
+game/fonts/                            | Fuentes tipográficas que se quieran usar en más de un minijuego
+game/textures/                         | Recursos gráficos que se quieran usar en más de un minijuego
+game/gameX/                            | Directorio del minijuego número 'X' (0, 1, 2, 3, 4, 5, ...)
+game/gameX/..../                       | El sub-arbol de cada minijuego. Gestionado por cada creador/es a su discrección
+readme.md                              | Este archivo de texto que estás leyendo (formateado en Markdown)
 license.md                             | 
 
-Los nombres de archivos del repositorio estarán en inglés.
+<sup>*</sup>Los nombres de archivos del repositorio estarán en inglés.
 
 ----
 
-**[1]** Es el equivalente al código fuente, pero para el contenido gráfico y sonoro. Puede contener archivos de audio multipista sin comprimir, imágenes en su máxima resolución, modelos de Blender sin exportar, etc. En general, aquí está el contenido en el formato más adecuado para ser editado, mientras que el directorio de juego, está en el formato más adecuado para ser manejado por el motor del juego.
+**[1]** Es el equivalente al código fuente, pero para el contenido gráfico y sonoro. Puede contener archivos de audio multipista sin comprimir, imágenes en su máxima resolución, modelos de Blender sin exportar, etc. En general, aquí está el contenido en el formato más adecuado para ser editado. Por el contrario, en el subdirectorio `game/`, están las versiones exportadas, más adecuadas para usarse en el motor del juego.
 
 **[2]** https://pages.github.com/
 
@@ -62,17 +62,19 @@ Utilizaremos como base las [normas de estilo](https://docs.godotengine.org/en/la
 
 * Los scripts del juego en GDScript han de terminar con la extensión ".gd".Los scripts del juego en GDScript han de terminar con la extensión ".gd".
 
-* Nombres de ficheros y directorios se permite elegir entre _snake_case_ y _kebab-case_ a los creadores de cada minijuego. Se desaconseja encarecidamente mezclar diferentes estilos. **Extremo cuidado** con usar ficheros con un mismo nombre pero diferente capitalización, e.g:
-```
+* **Nombres de ficheros** y **directorios** se permite elegir entre _snake_case_ y _kebab-case_ a los creadores de cada minijuego. Se aconseja encarecidamente **no mezclar** diferentes estilos. **Extremo cuidado** con usar ficheros con un mismo nombre pero diferente capitalización, e.g:
+```gdscript
+# En Windows todos los nombres de fichero siguientes son equivalentes:
 PlayerSprite.png
 playersprite.png
 plAYErSPriE.png
 PLAYERSPRITE.png
-// En Windows todos los nombres de fichero anteriores son equivalentes. El control de versiones sobreescribirá los archivos ya que el sistema de ficheros sólo permitirá un fichero con el mismo nombre en un mismo directorio.
+# Al hacer pull de estos 4 ficheros, el control de versiones sobreescribirá los archivos,
+# ya que, el sistema de ficheros sólo permite un fichero con el mismo nombre en un mismo directorio.
 ```
 * Nombres de **escenas**, **clases** y **nodos** en _CamelCase_. Al realizar pre-cargas de una clase en una constante o una variable es deseable usar también CamelCase, i.e.:
 ```gdscript
 const Player = preload("res://Player.gd")
 ```
 
-* Nombres de funciones y variables en snake_case
+* Nombres de **funciones** y **variables** en _snake_case_
