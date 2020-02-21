@@ -1,12 +1,12 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://fonts/ultra_large_text.tres" type="DynamicFont" id=1]
-[ext_resource path="res://textures/pb_sky.png" type="Texture" id=2]
-[ext_resource path="res://textures/pb_asphalt.png" type="Texture" id=3]
+[ext_resource path="res://game3/texture/pb_sky.png" type="Texture" id=2]
+[ext_resource path="res://game3/texture/pb_asphalt.png" type="Texture" id=3]
 [ext_resource path="res://scenes/common.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/game3/biker.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/game3.gd" type="Script" id=6]
-[ext_resource path="res://scenes/game3/passerby.tscn" type="PackedScene" id=7]
+[ext_resource path="res://game3/scenes/biker.tscn" type="PackedScene" id=5]
+[ext_resource path="res://game3/game3.gd" type="Script" id=6]
+[ext_resource path="res://game3/scenes/passerby.tscn" type="PackedScene" id=7]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )

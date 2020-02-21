@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pb_asphalt.png-f154d3563f353e83e8b747417a678d63.stex"
+path="res://.import/pb_paperboy.png-d57995ec9e1365688b365d7ebc30b160.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/game3/pb_asphalt.png"
-dest_files=[ "res://.import/pb_asphalt.png-f154d3563f353e83e8b747417a678d63.stex" ]
+source_file="res://game3/texture/pb_paperboy.png"
+dest_files=[ "res://.import/pb_paperboy.png-d57995ec9e1365688b365d7ebc30b160.stex" ]
 
 [params]
 

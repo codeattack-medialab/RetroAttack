@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fondo.png-90423faa90e561d49eb10d94f54c44bb.stex"
+path="res://.import/pb_paper.png-4f3f993866aec97d7a85f6e8037fbfb3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/game4/fondo.png"
-dest_files=[ "res://.import/fondo.png-90423faa90e561d49eb10d94f54c44bb.stex" ]
+source_file="res://game3/texture/pb_paper.png"
+dest_files=[ "res://.import/pb_paper.png-4f3f993866aec97d7a85f6e8037fbfb3.stex" ]
 
 [params]
 
