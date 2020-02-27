@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://game4/textures/fondo.png" type="Texture" id=1]
+[ext_resource path="res://fonts/ultra_large_text.tres" type="DynamicFont" id=2]
+[ext_resource path="res://game4/textures/frog.png" type="Texture" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Up"
+
+[node name="Game4" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Label" type="Label" parent="."]
+margin_left = 36.0
+margin_top = 91.0
+margin_right = 152.0
+margin_bottom = 149.0
+custom_fonts/font = ExtResource( 2 )
+text = "Frog	"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Frog" type="KinematicBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Frog"]
+texture = ExtResource( 3 )
+vframes = 16
+hframes = 8
+frame = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Frog"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Frog"]
+anims/Up = SubResource( 1 )

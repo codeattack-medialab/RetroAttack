@@ -1,6 +1,5 @@
 extends Node
 
-
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.pressed:
