@@ -47,14 +47,21 @@ func next_game():
 func _unhandled_input(event):
 	if event.is_action_pressed("toggle_mlp_facade"):
 		if mlp_facade:
+			print("Restoring screen...")
+			print(saved_window_size)
+			print(OS.window_size)
 			OS.window_borderless = false
+			OS.window_resizable = true
 			OS.window_position = saved_window_position
 			OS.window_size = saved_window_size
-			OS.window_resizable = true
 			mlp_facade = false
 		else:
 			var window_offset := Vector2(40, 40)
 			var screen_size := OS.get_screen_size()
+			print("Entering Facade Mode")
+			print(screen_size)
+			print(OS.window_size)
+			print(mlp_facade_size)
 			if screen_size == Vector2(1280, 1024):
 				window_offset = Vector2(163, 142)
 			OS.window_borderless = true
