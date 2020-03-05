@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://fonts/ultra_large_text.tres" type="DynamicFont" id=1]
 [ext_resource path="res://game3/texture/pb_sky.png" type="Texture" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://game3/scenes/biker.tscn" type="PackedScene" id=5]
 [ext_resource path="res://game3/game3.gd" type="Script" id=6]
 [ext_resource path="res://game3/scenes/passerby.tscn" type="PackedScene" id=7]
+[ext_resource path="res://game3/scenes/obstacle.tscn" type="PackedScene" id=8]
+[ext_resource path="res://game3/texture/pb_Mov_evil_Final.png" type="Texture" id=9]
+[ext_resource path="res://game3/scenes/stone.tscn" type="PackedScene" id=10]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
@@ -24,35 +27,89 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="Curve2D" id=4]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 78.7847, 105.945, 0, 0, 0, 0, 111.397, 105.945 )
+}
+
+[sub_resource type="Curve2D" id=5]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 16, 160, 0, 0, 0, 0, 176, 160 )
+}
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 9 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 9 )
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 9 )
+region = Rect2( 192, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 9 )
+region = Rect2( 256, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 9 )
+region = Rect2( 320, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 9 )
+region = Rect2( 384, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 9 )
+region = Rect2( 448, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=14]
+animations = [ {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
 [node name="Game3" type="Node"]
 script = ExtResource( 6 )
-passerby = ExtResource( 7 )
+Passerby = ExtResource( 7 )
+Obstacle = ExtResource( 8 )
+Stone = ExtResource( 10 )
 
 [node name="Common" parent="." instance=ExtResource( 4 )]
 
 [node name="Sky" type="Sprite" parent="."]
-position = Vector2( 102.679, 79.7113 )
-scale = Vector2( 1.1191, 1.1191 )
+position = Vector2( 101.928, 69.322 )
+scale = Vector2( 1.12661, 1.25434 )
 texture = ExtResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -15.1826
-margin_top = 106.032
-margin_right = 210.817
-margin_bottom = 166.032
+margin_left = -15.0
+margin_top = 76.0
+margin_right = 211.0
+margin_bottom = 166.0
 color = Color( 0.0156863, 0.529412, 0.156863, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Road" type="AnimatedSprite" parent="."]
-position = Vector2( 95.2979, 130.987 )
+position = Vector2( 95.2081, 115.647 )
+scale = Vector2( 1, 1.59177 )
 frames = SubResource( 3 )
 animation = "road"
 frame = 1
 
 [node name="Biker" parent="." instance=ExtResource( 5 )]
 position = Vector2( 127, 97 )
+z_index = 1
 
 [node name="Label" type="Label" parent="."]
 visible = false
@@ -68,4 +125,54 @@ __meta__ = {
 
 [node name="TimerLaunchPasserby" type="Timer" parent="."]
 autostart = true
+
+[node name="TimerLaunchObstacle" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="TimerLaunchStone" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Path" type="Node2D" parent="."]
+position = Vector2( 0.75103, -29.7909 )
+
+[node name="Path2DRoadTop" type="Path2D" parent="Path"]
+curve = SubResource( 4 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path/Path2DRoadTop"]
+position = Vector2( 78.7847, 105.945 )
+rotation = -1.9466e-06
+
+[node name="Path2DRoadDown" type="Path2D" parent="Path"]
+position = Vector2( 0, 30 )
+curve = SubResource( 5 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path/Path2DRoadDown"]
+position = Vector2( 16, 160 )
+
+[node name="Positions" type="Node2D" parent="."]
+
+[node name="LeftFrom" type="Position2D" parent="Positions"]
+position = Vector2( 63.7565, 66.4217 )
+
+[node name="LeftTo" type="Position2D" parent="Positions"]
+visible = false
+position = Vector2( -15.4591, 156.577 )
+
+[node name="RightFrom" type="Position2D" parent="Positions"]
+position = Vector2( 124.59, 66.4217 )
+
+[node name="RightTo" type="Position2D" parent="Positions"]
+position = Vector2( 210.1, 157.078 )
+
+[node name="PosBiker" type="Position2D" parent="Positions"]
+position = Vector2( 96.6326, 137.939 )
+
+[node name="MovEvilAnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 94.0457, 47.3979 )
+frames = SubResource( 14 )
+frame = 2
+playing = true
 [connection signal="timeout" from="TimerLaunchPasserby" to="." method="_on_TimerLaunchPasserby_timeout"]
+[connection signal="timeout" from="TimerLaunchObstacle" to="." method="_on_TimerLaunchObstacle_timeout"]
+[connection signal="timeout" from="TimerLaunchStone" to="." method="_on_TimerLaunchStone_timeout"]

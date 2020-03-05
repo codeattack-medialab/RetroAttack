@@ -47,6 +47,7 @@ animations = [ {
 radius = 3.79724
 
 [node name="Paper" type="Area2D"]
+z_index = 1
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -61,10 +62,5 @@ shape = SubResource( 10 )
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 position = Vector2( 0.121492, 0.0809944 )
 scale = Vector2( 0.412789, 0.408739 )
-
-[node name="TimerDelay" type="Timer" parent="."]
-wait_time = 0.5
-one_shot = true
 [connection signal="area_entered" from="." to="." method="_on_Paper_area_entered"]
 [connection signal="viewport_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_viewport_exited"]
-[connection signal="timeout" from="TimerDelay" to="." method="_on_TimerDelay_timeout"]

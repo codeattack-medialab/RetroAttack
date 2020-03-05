@@ -1,20 +1,15 @@
 extends Area2D
 
-export (PackedScene) var paper
+export (PackedScene) var Paper
 export var speed = 50
-var screen_size : Vector2
 var throwing := false
 var player1 := 1
 var player2 := 2
-
 
 func _ready():
 	start()
 
 func start():
-	screen_size = get_viewport_rect().size
-	position.x =  screen_size.x / 2
-	position.y = 140
 	$AnimatedSprite.play("ride")
 	show()
 	#$CollisionShape2D.disabled = false
@@ -22,7 +17,7 @@ func start():
 func _physics_process(delta):
 	var velocidad : Vector2
 	
-	#Move de biker
+	#Move the biker
 	velocidad.x = Remote.get_x_axis(player1,false)
 	
 	#Throwing Paper left o right
@@ -33,32 +28,40 @@ func _physics_process(delta):
 		throwPaper("right")
 		$AnimatedSprite.play("throw_right")
 			
-	
 	if !$AnimatedSprite.animation.begins_with("pb_throw") and $AnimatedSprite.frame == 3:
 			$AnimatedSprite.play("ride")
 			
 	if velocidad.length()>0:
 		position += velocidad.normalized() * speed * delta
 		position.x = clamp(position.x,40,170)
-	
+
+func transform_node(pos):
+	position=pos
 
 func throwPaper(dir):
-	var destination := Vector2()
-	
-	var new_paper = paper.instance() 
+	var paper_destination := Vector2()
 	throwing = true	
-	yield(get_tree().create_timer(0.5), "timeout")
+	yield(get_tree().create_timer(0.25), "timeout")
 	
-	var bike_position = position
+	var arm_position
 	if dir == "left":
-		destination =Vector2(-3,-1)
-		bike_position.x -=8
+		paper_destination =Vector2(-3,-1)
+		arm_position = $AnimatedSprite/PaperPositionLeft.global_position
 	elif dir == "right":
-		destination =Vector2(3,-1)
-		bike_position.x +=8
-		
-	bike_position.y -=8
-	new_paper.transformPaper(destination.normalized(),bike_position,dir)
+		paper_destination =Vector2(3,-1)
+		arm_position = $AnimatedSprite/PaperPositionRight.global_position
+
+	var new_paper = Paper.instance() 
+	new_paper.transform_node(paper_destination.normalized(),arm_position,dir)
 	get_parent().add_child(new_paper)
 	throwing = false	
 	
+func hit_stone():
+	hide()
+	pass
+
+
+
+func _on_Biker_area_shape_exited(area_id, area, area_shape, self_shape):
+	show()
+	pass # Replace with function body.
