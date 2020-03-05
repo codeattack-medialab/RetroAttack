@@ -1,5 +1,7 @@
 extends Area2D
 
+export (PackedScene) var Obstacle
+
 
 export var move_speed = 50
 var velocity = Vector2()
@@ -26,7 +28,19 @@ func _on_VisibilityNotifier2D_screen_exited():
 func read_paper():
 	hit = true
 	$CollisionShape2D.set_deferred("disabled", true) 
+	var position_from =  global_position
+	var position_to =  get_tree().get_root().get_node("Game3").get_MovEvilAnimatedSprite_position()
+	var new_obstacle = Obstacle.instance()
+	new_obstacle.transform_node(position_to-position_from,position_from)
+	get_parent().add_child(new_obstacle)
 	for i in range(4):
 		$Sprite/AnimationPlayer.play(animations[i])
 		yield(get_tree().create_timer(0.2), "timeout")
+	
+
+	
 	queue_free()
+	
+	
+	
+	

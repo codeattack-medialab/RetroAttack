@@ -53,3 +53,7 @@ func _on_TimerLaunchStone_timeout():
 	new_stone.transform_node(position_to-position_from,position_from)
 	get_parent().add_child(new_stone)
 	pass # Replace with function body.
+	
+func get_MovEvilAnimatedSprite_position():
+	return $MovEvilAnimatedSprite.position
+
