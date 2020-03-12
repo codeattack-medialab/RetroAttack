@@ -16,7 +16,7 @@ func start():
 
 func _physics_process(delta):
 	var velocidad : Vector2
-	
+	## ATENCION valores absolutos por camara de -1,0,1
 	#Move the biker
 	velocidad.x = Remote.get_x_axis(player1,false)
 	
@@ -59,8 +59,6 @@ func throwPaper(dir):
 func hit_stone():
 	hide()
 	pass
-
-
 
 func _on_Biker_area_shape_exited(area_id, area, area_shape, self_shape):
 	show()

@@ -1,11 +1,12 @@
 extends Area2D
 
 
-export var move_speed = 10
+export var move_speed = 15
 var velocity = Vector2()
 var hit := true setget ,get_hit
 var y_temp := 0
 var razon : float
+var destination : Vector2
 
 func get_hit():
 	return hit
@@ -22,15 +23,14 @@ func _physics_process(delta):
 			razon = float(y_temp)/float(75)
 			scale.y = clamp(1.0 * razon,0.25,1)
 			scale.x = clamp(1.0 * razon,0.25,1)
-			
-			print(razon)
-			print (scale)
 
-func transform_node(vel,pos):
+
+func transform_node(vel,pos,des):
 	position=pos
 	velocity=vel
+	destination=des
 	y_temp = int(position.y) -75
-	print(y_temp)
+	
 	scale *= 0.25
 
 func _on_VisibilityNotifier2D_screen_exited():
