@@ -1,11 +1,60 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://game3/texture/pb_werewolf.png" type="Texture" id=1]
+[ext_resource path="res://game3/texture/pb_passerby.png" type="Texture" id=1]
 [ext_resource path="res://game3/scenes/passerby.gd" type="Script" id=2]
 [ext_resource path="res://game3/scenes/mov_evil.tscn" type="PackedScene" id=3]
+[ext_resource path="res://game3/audio/Sounds/NFF-throw-04.wav" type="AudioStream" id=4]
 
 [sub_resource type="Animation" id=1]
-resource_name = "Down"
+resource_name = "OpenPaper"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 10, 11 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "ReadPaper"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 12, 13, 14, 15 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Surprise"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=4]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -21,92 +70,36 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Left"
-length = 0.8
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 12, 13, 14, 15 ]
-}
-
-[sub_resource type="Animation" id=3]
-resource_name = "Right"
-length = 0.8
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 4, 5, 6, 7 ]
-}
-
-[sub_resource type="Animation" id=4]
-resource_name = "Stop"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
-
-[sub_resource type="Animation" id=5]
-length = 0.8
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 8, 9, 10, 11 ]
-}
-
-[sub_resource type="CapsuleShape2D" id=6]
-radius = 6.3736
-height = 7.7453
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 5.86855
+height = 19.1358
 
 [node name="Passerby" type="Area2D"]
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 Mov_evil = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 vframes = 4
 hframes = 4
+frame = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
-anims/Down = SubResource( 1 )
-anims/Left = SubResource( 2 )
-anims/Right = SubResource( 3 )
-anims/Stop = SubResource( 4 )
-anims/Up = SubResource( 5 )
+anims/OpenPaper = SubResource( 1 )
+anims/ReadPaper = SubResource( 2 )
+anims/Surprise = SubResource( 3 )
+anims/WalkMovEvil = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-[connection signal="area_entered" from="." to="." method="_on_Passerby_area_entered"]
+
+[node name="AudioReadPaper" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "Efects"
+[connection signal="animation_finished" from="Sprite/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

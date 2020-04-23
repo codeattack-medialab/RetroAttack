@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/NFF-twitch.wav-df77595c1692d31e5f70b18c14c52050.sample"
+
+[deps]
+
+source_file="res://game3/audio/Sounds/NFF-twitch.wav"
+dest_files=[ "res://.import/NFF-twitch.wav-df77595c1692d31e5f70b18c14c52050.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

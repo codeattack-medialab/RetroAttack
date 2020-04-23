@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/NFF-car-hit.wav-0a2e820c7b075257c8acfa97846d252a.sample"
+
+[deps]
+
+source_file="res://game3/audio/Sounds/NFF-car-hit.wav"
+dest_files=[ "res://.import/NFF-car-hit.wav-0a2e820c7b075257c8acfa97846d252a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

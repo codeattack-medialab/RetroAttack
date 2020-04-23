@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Enemigo Final POL-combat-plan-short.wav-dec3a6623cb7f7bc617d08df11bd738f.sample"
+
+[deps]
+
+source_file="res://game3/audio/Music/Chiptune/Buenas/Enemigo Final POL-combat-plan-short.wav"
+dest_files=[ "res://.import/Enemigo Final POL-combat-plan-short.wav-dec3a6623cb7f7bc617d08df11bd738f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

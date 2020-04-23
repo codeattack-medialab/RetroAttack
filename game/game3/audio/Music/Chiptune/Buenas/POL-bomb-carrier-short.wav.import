@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/POL-bomb-carrier-short.wav-74e63cc0f5147d6c12f74d5a2ff600f5.sample"
+
+[deps]
+
+source_file="res://game3/audio/Music/Chiptune/Buenas/POL-bomb-carrier-short.wav"
+dest_files=[ "res://.import/POL-bomb-carrier-short.wav-74e63cc0f5147d6c12f74d5a2ff600f5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

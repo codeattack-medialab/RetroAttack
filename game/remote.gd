@@ -51,3 +51,24 @@ func get_action(player: int, just_pressed: bool):
 func get_remote_command():
 	return ""
 	
+func get_x_axis_joy(player: int):
+	
+	var axis
+	#return Input.get_action_strength("mlp_p%d_stick_left"  % player)
+	if Input.get_action_strength("mlp_p%d_stick_left" % player) >= 0.05:
+		axis = Input.get_action_strength("mlp_p%d_stick_left" % player)
+		#print("I " + str(m_axis))
+		return (axis * -1)
+	elif Input.get_action_strength("mlp_p%d_stick_right" % player) >= 0.05:
+		axis = Input.get_action_strength("mlp_p%d_stick_right" % player)
+		#print("D " + str(m_axis))
+		return axis
+	else:
+		return 0.0
+			
+	
+#func get_x_axis_joyD(player: int):
+#
+#
+#	return Input.get_action_strength("mlp_p%d_stick_right"  % player)
+		

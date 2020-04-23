@@ -49,6 +49,9 @@ radius = 3.79724
 [node name="Paper" type="Area2D"]
 z_index = 1
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -0.242985, -0.809948 )
@@ -63,4 +66,4 @@ shape = SubResource( 10 )
 position = Vector2( 0.121492, 0.0809944 )
 scale = Vector2( 0.412789, 0.408739 )
 [connection signal="area_entered" from="." to="." method="_on_Paper_area_entered"]
-[connection signal="viewport_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_viewport_exited"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
